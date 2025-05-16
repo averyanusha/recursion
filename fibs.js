@@ -14,13 +14,15 @@ function fibs (n){
 console.log(fibs(12));
 
 function fibsRec (n) {
-  if (n === 0){
-    return 0;
+  if (n === 1){
+    return [0];
   }
-  if (n === 1) {
-    return 1;
+  if (n === 2) {
+    return [0, 1];
   } else {
-    return (fibsRec(n - 1) + fibsRec(n - 2));
+    let result = fibsRec(n - 1);
+    result.push(result[result.length -1] + [result.length - 2]);
+    return result;
   }
 }
 
